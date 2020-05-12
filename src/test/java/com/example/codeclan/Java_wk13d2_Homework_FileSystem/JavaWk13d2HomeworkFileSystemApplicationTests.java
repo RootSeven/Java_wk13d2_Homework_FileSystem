@@ -29,6 +29,7 @@ class JavaWk13d2HomeworkFileSystemApplicationTests {
 	@Test
 	void canMakeFolder(){
 		User user = new User("Mairi");
+		userRepository.save(user);
 
 		Folder folder = new Folder("NewFolder", user);
 		folderRepository.save(folder);

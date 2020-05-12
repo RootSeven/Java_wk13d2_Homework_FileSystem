@@ -1,5 +1,7 @@
 package com.example.codeclan.Java_wk13d2_Homework_FileSystem.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +17,7 @@ public class User {
     @Column
     private String name;
 
+    @JsonBackReference
     @OneToMany(mappedBy = "user")
     private List<Folder> folders;
 
