@@ -18,9 +18,14 @@ public class Folder {
     @OneToMany(mappedBy = "folder")
     private List<File> files;
 
-    public Folder(String title) {
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
+    public Folder(String title, User user) {
         this.title = title;
         this.files = new ArrayList<File>();
+        this.user = user;
     }
 
     public Folder() {
@@ -52,5 +57,13 @@ public class Folder {
 
     public void addFile(File file){
         this.files.add(file);
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
